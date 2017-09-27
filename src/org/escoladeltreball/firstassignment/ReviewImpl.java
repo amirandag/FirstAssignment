@@ -46,7 +46,17 @@ public final class ReviewImpl implements Review {
 	 */
 	@Override
 	public int[] merge(int[] values, int n) {
-		return null;
+		int[] nMerged = new int[values.length + 1];
+		int i = 0;
+		while (i < values.length && values[i] <= n) {
+			nMerged[i] = values[i];
+			i++;
+		}
+		nMerged[i] = n;
+		for (int j = i; j < values.length; j++) {
+			nMerged[j + 1] = values[j];
+		}
+		return nMerged;
 	}
 
 	/*
